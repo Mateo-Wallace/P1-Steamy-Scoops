@@ -1,0 +1,8 @@
+.fa-gamepad {
+    transition: transform 250ms;
+    text-decoration: none;
+}
+
+.fa-gamepad:hover {
+    transform: translateY(-5px);
+}
