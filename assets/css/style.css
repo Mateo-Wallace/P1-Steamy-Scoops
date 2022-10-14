@@ -1,3 +1,10 @@
+.bg-custom {
+    background: url(../images/ds3-bg-image.gif) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;}
+
 .fa-gamepad {
     transition: transform 250ms;
     text-decoration: none;
