@@ -10,7 +10,7 @@ const options = {
 	}
 };
 
-let bruh = fetch('https://steam2.p.rapidapi.com/search/'+ gameSearch +'/page/1', options) //'https://steam2.p.rapidapi.com/search/' + gameSearch , options)
+let bruh = fetch('https://steam2.p.rapidapi.com/search/'+ gameSearch +'/page/1', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
@@ -20,4 +20,3 @@ let bruh = fetch('https://steam2.p.rapidapi.com/search/'+ gameSearch +'/page/1',
         console.log('Click')
 
     })
-    // searchButton.addEventListener("click", () => getCoordinatesFromOpenWeatherMap());
