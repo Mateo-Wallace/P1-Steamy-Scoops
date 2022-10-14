@@ -1,5 +1,5 @@
 
-var gameSearch = document.getElementById("searchBar").text;
+var gameSearch = document.getElementById("searchBar");
 var searchButton = document.getElementById("searchButton");
 const apiKey = "7ca66c0b57msh5f0900adbde527ap12f1d6jsn65ee2844dd63"
 const options = {
@@ -10,13 +10,26 @@ const options = {
 	}
 };
 
-let bruh = fetch('https://steam2.p.rapidapi.com/search/'+ gameSearch +'/page/1', options)
+
+function apiSearch() {
+    fetch('https://steam2.p.rapidapi.com/search/'+ gameSearch +'/page/1', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
-
     
-    searchButton.addEventListener('click', () => {
-        console.log('Click')
+}
+    
 
-    })
+
+
+
+    function handleSearchFormSubmit(e){
+        e.preventDefault();
+
+   var search = gameSearch.value;
+    console.log(search)
+}
+
+
+    searchButton.addEventListener('click', apiSearch)
+    
