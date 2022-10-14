@@ -26,10 +26,12 @@ function apiSearch() {
     function handleSearchFormSubmit(e){
         e.preventDefault();
 
-   var search = gameSearch.value;
-    console.log(search)
+   var rawSearch = gameSearch.value.trim();
+   var search = rawSearch.charAt(0).toUpperCase() + rawSearch.slice(1).toLowerCase();
+    console.log(search);
+    apiSearch(search);
+    gameSearch.value = '';
 }
 
 
-    searchButton.addEventListener('click', apiSearch)
-    
+    searchButton.addEventListener('click', handleSearchFormSubmit)
