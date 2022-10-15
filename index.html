@@ -11,26 +11,93 @@
     <title>Steamy Scoops</title>
 </head>
 
-<body>
+<body class="bg-custom">
 
-    <header class="text-center bg-gradient-to-r from-blue-900 to-blue-600 ...">
-        <h1 class="text-5xl font-extrabold text-slate-200 p-2"><a href="./index.html" class="text-reset"><i class="fa-solid fa-gamepad"></i></a> Steamy Scoops</h1>
+    <header class="text-center bg-gradient-to-r from-slate-900 to-slate-600">
+        <h1 class="text-5xl font-extrabold text-slate-200 p-2"><a href="./index.html" class="text-reset"><i
+                    class="fa-solid fa-gamepad"></i></a> Steamy Scoops</h1>
     </header>
     <main>
-        <aside>
-            <h2>Find a game you're interested in!</h2>
-            <form id="searchForm">
-            <input type="text" placeholder="Game Title" id="searchBar">
-              </form>
-            <button type='submit' id="searchButton">Let's Go!</button>
+
+
+        <aside class="grid grid-cols-3 m-2">
+            <div class="max-w-md rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200 px-6 py-4 ">
+                <h2 class="font-bold text-xl mb-2">Find a game you're interested in!</h2>
+                 <form id="searchForm">
+                <input
+                    class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-700"
+                    type="text" placeholder="Game Title" id="searchBar">
+                    </form>
+                <button
+                    class="shadow bg-purple-800 hover:bg-purple-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mt-2"
+                    type="button" id="searchButton">Let's Go!</button>
+            </div>
+            <div class="max-w-md rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200">
+                <div class="px-6 py-4">
+                    <h2 class="font-bold text-xl mb-2">Game Title</h2>
+                    <p class="text-base">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et
+                        perferendis eaque, exercitationem praesentium nihil.
+                    </p>
+                </div>
+            </div>
+            <div class="max-w-md rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200">
+                <img class="object-contain h-48 w-96" src="https://via.placeholder.com/150" alt="">
+            </div>
         </aside>
-        <div id="output">
-        <h1>Game Title</h1>
-        <img src="" alt="">
+        
+        <section>
+            <div class="p-10">
+                <!--Card 1-->
+                <section class="col-auto">
+                <div
+                    class="max-w-fit  max-h-fit rounded overflow-hidden shadow-lg lg-20 bg-slate-800/90 text-slate-200 px-20 py-20">
+                    <img class="w-full" src="/mountain.jpg" alt="Mountain">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2">Mountain</div>
+                        <p class="text-gray-700 text-base">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores
+                            et perferendis eaque, exercitationem praesentium nihil.
+                        </p>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                        <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                        <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                        <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                    </div>
+                </div>
+            </div>
+        <!--Card 2-->
+        <div
+            class="max-w-fit max-h-fit rounded overflow-hidden shadow-lg lg-20 bg-slate-800/90 text-slate-200 px-20 py-20">
+            <img class="w-full" src="/mountain.jpg" alt="Mountain">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Mountain</div>
+                <p class="text-gray-700 text-base">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
+                    perferendis eaque, exercitationem praesentium nihil.
+                </p>
+            </div>
+            <div class="px-6 pt-4 pb-2">
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+            </div>
         </div>
+        </div>
+        </section>
     </main>
 
-    <footer>Send feet pics</footer>
+    <footer class="text-center bg-gradient-to-r from-slate-900 to-slate-600">
+        <h1 class="text-2xl font-extrabold text-slate-200 p-2">Insert Nav Bar</h1>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src=" https://rapidapi.com/accujazz/api/rawg-video-games-database/"></script>
     <script src=" https://rapidapi.com/psimavel/api/steam2"></script>
