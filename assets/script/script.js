@@ -1,6 +1,7 @@
 // Global Variables
 const apiKey = "7ca66c0b57msh5f0900adbde527ap12f1d6jsn65ee2844dd63"
 const apiUrl = 'https://steam2.p.rapidapi.com/search/'
+const apiNewsUrl = 'https://steam2.p.rapidapi.com/newsForApp/'
 const options = {
 	method: 'GET',
 	headers: {
@@ -28,9 +29,25 @@ function apiSearch() {
 
 // Call fetch api for steam news and pull down data
 function steamNews (appIdData) {
-	console.log(appIdData)
+	fetch(apiNewsUrl + appIdData + '/limit/10/300', options)
+		.then(response => response.json())
+		.then(function (data) {
+            for (let i =0; i < 10; i++) {
+                console.log(data.appnews.newsitems[i])
+            }
+            data = data.appnews.newsitems
+            renderNewsData(data)
+		})
+		.catch(err => console.error(err));
 }
-
+// Render relevant game news data
+function renderNewsData (data) {
+	console.log(data)
+	var imgUrlData
+	var priceData
+	var titleData
+	var steamLinkData
+}
 // Render relevant game data to the page, using the data from steam search api
 function renderSearchData (data) {
 	console.log(data)
