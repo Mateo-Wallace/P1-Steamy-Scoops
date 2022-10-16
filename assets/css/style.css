@@ -1,15 +1,60 @@
+/* ELEMENT SELECTORS */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* CLASS SELECTORS */
+
+/* adds custom background image to webpage */
 .bg-custom {
-    background: url(../images/ds3-bg-image.gif) no-repeat center center fixed; 
+    background: url(../images/ds3-bg-image.gif) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;}
-
-.fa-gamepad {
-    transition: transform 250ms;
-    text-decoration: none;
+    background-size: cover;
 }
 
-.fa-gamepad:hover {
-    transform: translateY(-5px);
+/* makes game icon in header bounce on hover */
+.bounce-custom {
+    transition: transform 250ms;
+    transition: all 250ms;
+}
+.bounce-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: black 0px 15px 20px -10px;
+}
+
+.overflow-wrap {
+    overflow-wrap: break-word;
+}
+
+.max-width {
+    max-width: 500px;
+}
+
+/* Centers game image */
+.center-custom {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+.image-custom {
+    width: 500px;
+    max-height: 400px;
+}
+
+/* Media Querie */
+
+@media screen and (max-width: 1024px) {
+    .max-width {
+        max-width: none;
+    }
 }

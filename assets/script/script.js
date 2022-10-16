@@ -10,34 +10,91 @@ const options = {
 };
 
 // DOM Element Variables
-var gameSearch = document.getElementById("searchBar");
-var searchButton = document.getElementById("searchButton");
-var searchForm = document.getElementById("searchForm")
+const gameSearch = document.getElementById("searchBar");
+const searchButton = document.getElementById("searchButton");
+const searchForm = document.getElementById("searchForm")
+const gameInformationEl = document.getElementById('game-information')
+const gameImageEl = document.getElementById('game-image')
+const asideTopEl = document.getElementById('aside-top')
 
-// Function to pull AppId data from Steam API
-function apiSearch() {
-	fetch(apiUrl + gameSearch.value + '/page/1', options)
+// FETCH Function to pull AppId data from Steam API
+function apiSearch(search) {
+	fetch(apiUrl + search + '/page/1', options)
 		.then(response => response.json())
 		.then(function (data) {
 			var appIdData = data[0].appId
+			var searchData = data
 			steamNews (appIdData)
-			renderSearchData (data)
+			steamAppDetail (appIdData, searchData)
 		})
 		.catch(err => console.error(err));
 }
 
-// Call fetch api for steam news and pull down data
+// FETCH Call fetch api for steam news and pull down data
 function steamNews (appIdData) {
 	console.log(appIdData)
 }
 
+// FETCH Call fetch to get app details
+function steamAppDetail(appIdData, searchData) {
+	const appDetailUrl = 'https://steam2.p.rapidapi.com/appDetail/' + appIdData
+	fetch(appDetailUrl, options)
+		.then(response => response.json())
+		.then(function (data) {
+			var appDetailData = data
+			renderAppDetailData (appDetailData, searchData)
+		})
+		.catch(err => console.error(err));
+}
+
 // Render relevant game data to the page, using the data from steam search api
-function renderSearchData (data) {
-	console.log(data)
-	var imgUrlData
-	var priceData
-	var titleData
-	var steamLinkData
+function renderAppDetailData (appDetailData, searchData) {
+	gameInformationEl.innerHTML = ''
+	gameImageEl.innerHTML = ''
+	console.log(appDetailData)
+	console.log(searchData)
+	// Define variables for apiSearch data
+	var imgUrl = searchData[0].imgUrl
+	var price = appDetailData.price
+	var title = searchData[0].title
+	var description = appDetailData.description
+	var steamLink = searchData[0].url
+
+	if (description === '') {
+		description = 'No info'
+	}
+	if (price === '') {
+		price = 'No info'
+	}
+
+	// Create elements to add to parent div
+	var cardDivEl = document.createElement('div')
+	var titleEl = document.createElement('h2')
+	var informationEl = document.createElement('p')
+	var linkEl = document.createElement('a')
+	var imgEl = document.createElement('img')
+
+	// Append elements and style
+	asideTopEl.classList.remove('lg:grid-cols-2')
+	asideTopEl.classList.add('lg:grid-cols-3')
+	gameInformationEl.appendChild(cardDivEl)
+	cardDivEl.setAttribute('class', 'px-6 py-4')
+	cardDivEl.appendChild(titleEl)
+	titleEl.setAttribute('class', 'font-bold text-xl mb-2')
+	cardDivEl.appendChild(informationEl)
+	informationEl.setAttribute('class', 'text-base overflow-wrap')
+	gameImageEl.appendChild(linkEl)
+	gameImageEl.setAttribute('class', 'w-11/12 max-width m-2 center-custom')
+	linkEl.setAttribute('href', steamLink)
+	linkEl.appendChild(imgEl)
+	imgEl.setAttribute('class', 'image-custom rounded bounce-custom')
+	imgEl.setAttribute('src', imgUrl)
+
+
+	// Adds text content to appended elements
+	titleEl.innerText = title
+	informationEl.innerHTML = description + '<br><br>Price: ' + price
+
 }
 
 function handleSearchFormSubmit(e) {

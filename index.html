@@ -15,13 +15,13 @@
 
     <header class="text-center bg-gradient-to-r from-slate-900 to-slate-600">
         <h1 class="text-5xl font-extrabold text-slate-200 p-2"><a href="./index.html" class="text-reset"><i
-                    class="fa-solid fa-gamepad"></i></a> Steamy Scoops</h1>
+                    class="fa-brands fa-steam bounce-custom rounded-full"></i></a> Steamy Scoops</h1>
     </header>
     <main>
 
 
-        <aside class="grid grid-cols-3 m-2">
-            <div class="max-w-md rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200 px-6 py-4 ">
+        <aside id="aside-top" class="grid grid-cols-1 lg:grid-cols-2 m-2 gap-auto justify-items-center">
+            <div class="w-11/12 max-width rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200 px-6 py-4 ">
                 <h2 class="font-bold text-xl mb-2">Find a game you're interested in!</h2>
                  <form id="searchForm">
                 <input
@@ -32,17 +32,22 @@
                     class="shadow bg-purple-800 hover:bg-purple-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mt-2"
                     type="button" id="searchButton">Let's Go!</button>
             </div>
-            <div class="max-w-md rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200">
+
+            <!-- Targetted by renderSearchData -->
+            <div id='game-information' class="w-11/12 max-width rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200">
                 <div class="px-6 py-4">
-                    <h2 class="font-bold text-xl mb-2">Game Title</h2>
+                    <h2 class="font-bold text-xl mb-2">What is Steamy Scoops?</h2>
                     <p class="text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et
-                        perferendis eaque, exercitationem praesentium nihil.
+                        Steamy Scoops is a webapp that allows you to search for the latest news on your favorite games!
+                        <br>
+                        <br>We will display Steam and YouTube news. 
+                        <br>Try it out!
                     </p>
                 </div>
             </div>
-            <div class="max-w-md rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200">
-                <img class="object-contain h-48 w-96" src="https://via.placeholder.com/150" alt="">
+
+            <!-- Image of video game -->
+            <div id="game-image" class="w-11/12 max-width m-2 center-custom">
             </div>
         </aside>
         
@@ -52,7 +57,7 @@
                 <section class="col-auto">
                 <div
                     class="max-w-fit  max-h-fit rounded overflow-hidden shadow-lg lg-20 bg-slate-800/90 text-slate-200 px-20 py-20">
-                    <img class="w-full" src="/mountain.jpg" alt="Mountain">
+                    <img class="w-full">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2">Mountain</div>
                         <p class="text-gray-700 text-base">
@@ -73,7 +78,7 @@
         <!--Card 2-->
         <div
             class="max-w-fit max-h-fit rounded overflow-hidden shadow-lg lg-20 bg-slate-800/90 text-slate-200 px-20 py-20">
-            <img class="w-full" src="/mountain.jpg" alt="Mountain">
+            <img class="w-full">
             <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2">Mountain</div>
                 <p class="text-gray-700 text-base">
@@ -99,8 +104,6 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src=" https://rapidapi.com/accujazz/api/rawg-video-games-database/"></script>
-    <script src=" https://rapidapi.com/psimavel/api/steam2"></script>
     <script src="./assets/script/script.js"></script>
 </body>
 
