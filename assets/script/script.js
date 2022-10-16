@@ -1,11 +1,22 @@
 // Global Variables
 const apiKey = "7ca66c0b57msh5f0900adbde527ap12f1d6jsn65ee2844dd63"
 const apiUrl = 'https://steam2.p.rapidapi.com/search/'
+const apiYoutubeUrl = `https://youtube138.p.rapidapi.com/search/?q=`
+const streamUrl = 'https://youtube138.p.rapidapi.com/video/streaming-data/?id='
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': apiKey,
 		'X-RapidAPI-Host': 'steam2.p.rapidapi.com'
+	}
+};
+
+//options file for the youtube api
+const optionsYoutube = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '4abe4a0781msh9f300002fb38b8ap1ac971jsnd6b5e73499a4',
+		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
 	}
 };
 
@@ -24,11 +35,36 @@ function apiSearch(search) {
 		.then(function (data) {
 			var appIdData = data[0].appId
 			var searchData = data
+			var videoTitle = data[0].title
 			steamNews (appIdData)
 			steamAppDetail (appIdData, searchData)
+			youtubeApi(videoTitle)
 		})
 		.catch(err => console.error(err));
 }
+
+//adds the "guide" keyword to the game title and pulls up the relevant video(s)
+function youtubeApi(videoTitle) {
+	fetch(apiYoutubeUrl+ videoTitle + '%20guide&hl=en&gl=US',optionsYoutube)
+		.then(response => response.json())
+		.then(function (videoData) {
+		var videoId = videoData.contents[1].video.videoId
+		console.log(videoId, "<-- This is the video ID!")
+		streamVideo(videoId)
+		})
+		.catch(err => console.error(err));
+	}
+// streams the video ID fed to it from the previous function
+	function streamVideo(videoId) {
+		fetch(streamUrl + videoId ,optionsYoutube)
+			.then(response => response.json())
+			.then(function (data) {
+			var streamData = data
+			console.log(streamData)
+			})
+			.catch(err => console.error(err));
+		}
+
 
 // FETCH Call fetch api for steam news and pull down data
 function steamNews (appIdData) {
