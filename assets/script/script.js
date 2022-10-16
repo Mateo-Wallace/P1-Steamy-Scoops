@@ -2,6 +2,7 @@
 const apiKey = "7ca66c0b57msh5f0900adbde527ap12f1d6jsn65ee2844dd63"
 const apiUrl = 'https://steam2.p.rapidapi.com/search/'
 const apiYoutubeUrl = `https://youtube138.p.rapidapi.com/search/?q=`
+const streamUrl = 'https://youtube138.p.rapidapi.com/video/streaming-data/?id='
 const options = {
 	method: 'GET',
 	headers: {
@@ -49,9 +50,20 @@ function youtubeApi(videoTitle) {
 		.then(function (videoData) {
 		var videoId = videoData.contents[1].video.videoId
 		console.log(videoId, "<-- This is the video ID!")
+		streamVideo(videoId)
 		})
 		.catch(err => console.error(err));
 	}
+// streams the video ID fed to it from the previous function
+	function streamVideo(videoId) {
+		fetch(streamUrl + videoId ,optionsYoutube)
+			.then(response => response.json())
+			.then(function (data) {
+			var streamData = data
+			console.log(streamData)
+			})
+			.catch(err => console.error(err));
+		}
 
 
 // FETCH Call fetch api for steam news and pull down data
