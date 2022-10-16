@@ -21,26 +21,28 @@
 
 
         <aside id="aside-top" class="grid grid-cols-1 lg:grid-cols-2 m-2 gap-auto justify-items-center">
-            <div class="w-11/12 max-width rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200 px-6 py-4 ">
+            <div
+                class="w-11/12 max-width rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200 px-6 py-4 ">
                 <h2 class="font-bold text-xl mb-2">Find a game you're interested in!</h2>
-                 <form id="searchForm">
-                <input
-                    class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-700"
-                    type="text" placeholder="Game Title" id="searchBar">
-                    </form>
+                <form id="searchForm">
+                    <input
+                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-700"
+                        type="text" placeholder="Game Title" id="searchBar">
+                </form>
                 <button
                     class="shadow bg-purple-800 hover:bg-purple-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mt-2"
                     type="button" id="searchButton">Let's Go!</button>
             </div>
 
             <!-- Targetted by renderSearchData -->
-            <div id='game-information' class="w-11/12 max-width rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200">
+            <div id='game-information'
+                class="w-11/12 max-width rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200">
                 <div class="px-6 py-4">
                     <h2 class="font-bold text-xl mb-2">What is Steamy Scoops?</h2>
                     <p class="text-base">
                         Steamy Scoops is a webapp that allows you to search for the latest news on your favorite games!
                         <br>
-                        <br>We will display Steam and YouTube news. 
+                        <br>We will display Steam and YouTube news.
                         <br>Try it out!
                     </p>
                 </div>
@@ -50,152 +52,150 @@
             <div id="game-image" class="w-11/12 max-width m-2 center-custom">
             </div>
         </aside>
-        
-        <section class="grid grid-cols-1 lg:grid-cols-3 m-2 gap-auto flex space-x-4 dark:bg-slate-600/90 justify-around py-2">
-                <!-- container for cards -->
-                    <!-- card 1-->
-                    <div class="card md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
-                        <!-- <figure class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800"> -->
-                            <div class="flex items-center text-white p-2"> 
-                                <i class="fa-brands fa-steam fa-lg text-5xl pl-2"></i>
-                            </div>
-                            <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-                              <blockquote>
-                                <p class="text-lg font-medium text-white">
-                                  Contents of article of steam news
-                                </p>
-                              </blockquote>
-                              <figcaption class="font-medium">
-                                <div class="text-sky-400">
-                                  Title of  article
-                                </div>
-                                <div class="text-slate-500">
-                                  Author of article 
-                                </div>
-                              </figcaption>
-                            </div>
-                          </figure>
-                    </div>
-                    <!-- card 2 -->
-                    <div class="card md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
-                        <!-- <figure class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800"> -->
-                            <div class="flex items-center text-white p-2"> 
-                                <i class="fa-brands fa-steam fa-lg text-5xl pl-2"></i>
-                            </div>
-                            <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-                              <blockquote>
-                                <p class="text-lg font-medium text-white">
-                                  Contents of article of steam news
-                                </p>
-                              </blockquote>
-                              <figcaption class="font-medium">
-                                <div class="text-sky-500 dark:text-sky-400">
-                                  Title of  article
-                                </div>
-                                <div class="text-slate-700 dark:text-slate-500">
-                                  Author of article 
-                                </div>
-                              </figcaption>
-                            </div>
-                          </figure>
-                    </div>
-                    <!-- card 3 -->
-                    <div class="card md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
-                        <!-- <figure class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800"> -->
-                            <div class="flex items-center text-white p-2"> 
-                                <i class="fa-brands fa-steam fa-lg text-5xl pl-2"></i>
-                            </div>
-                            <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-                              <blockquote>
-                                <p class="text-lg font-medium text-white">
-                                  Contents of article of steam news
-                                </p>
-                              </blockquote>
-                              <figcaption class="font-medium">
-                                <div class="text-sky-500 dark:text-sky-400">
-                                  Title of  article
-                                </div>
-                                <div class="text-slate-700 dark:text-slate-500">
-                                  Author of article 
-                                </div>
-                              </figcaption>
-                            </div>
-                          </figure>
-                    </div>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-auto flex bg-slate-600/80 justify-around rounded m-3 p-1">
+            <!-- news card area -->
+            <!-- card 1-->
+            <div class="w-custom m-2 card flex rounded-xl p-0 bg-slate-800">
+                <div class="flex items-center text-white p-2">
+                    <i class="fa-brands fa-steam fa-lg text-7xl pl-2"></i>
+                </div>
+                <div class="pt-6 p-8 text-left space-y-4">
+                    <blockquote>
+                        <p class="text-lg font-medium text-white">
+                            Contents of article of steam news
+                        </p>
+                    </blockquote>
+                    <figcaption class="font-medium">
+                        <div class="text-sky-400">
+                            Title of article
+                        </div>
+                        <div class="text-slate-500">
+                            Author of article
+                        </div>
+                    </figcaption>
+                </div>
+                </figure>
+            </div>
+            <!-- card 2 -->
+            <div class="w-custom m-2 card flex rounded-xl p-0 bg-slate-800">
+                <div class="flex items-center text-white p-2">
+                    <i class="fa-brands fa-steam fa-lg text-7xl pl-2"></i>
+                </div>
+                <div class="pt-6 p-8 text-left space-y-4">
+                    <blockquote>
+                        <p class="text-lg font-medium text-white">
+                            Contents of article of steam news
+                        </p>
+                    </blockquote>
+                    <figcaption class="font-medium">
+                        <div class="text-sky-400">
+                            Title of article
+                        </div>
+                        <div class="text-slate-500">
+                            Author of article
+                        </div>
+                    </figcaption>
+                </div>
+                </figure>
+            </div>
+            <!-- card 3 -->
+            <div class="w-custom m-2 card flex rounded-xl p-0 bg-slate-800">
+                <div class="flex items-center text-white p-2">
+                    <i class="fa-brands fa-steam fa-lg text-7xl pl-2"></i>
+                </div>
+                <div class="pt-6 p-8 text-left space-y-4">
+                    <blockquote>
+                        <p class="text-lg font-medium text-white">
+                            Contents of article of steam news
+                        </p>
+                    </blockquote>
+                    <figcaption class="font-medium">
+                        <div class="text-sky-400">
+                            Title of article
+                        </div>
+                        <div class="text-slate-500">
+                            Author of article
+                        </div>
+                    </figcaption>
+                </div>
+                </figure>
+            </div>
         </section>
-                <!-- youtube card area -->
-                <section class="grid grid-cols-1 lg:grid-cols-3 m-2 gap-auto flex space-x-4 dark:bg-slate-600/90 justify-items-center py-2">
-                        <!-- card 1-->
-                        <div class="card">
-                            <figure class="md:flex rounded-xl p-8 md:p-0 bg-slate-800">
-                                <iframe class="w-full aspect-video"src= "youtube video api"></iframe>
-                                <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-                                  <blockquote>
-                                    <p class="text-lg font-medium text-white">
-                                      Contents of article of from the steam news link
-                                    </p>
-                                  </blockquote>
-                                  <figcaption class="font-medium">
-                                    <div class="text-sky-400">
-                                      Title of  article
-                                    </div>
-                                    <div class="text-slate-500">
-                                      Author of article 
-                                    </div>
-                                  </figcaption>
-                                </div>
-                              </figure>
+
+        <!-- youtube card area -->
+        <section
+            class="grid grid-cols-1 lg:grid-cols-3 gap-auto justify-items-center bg-slate-600/80 shadow-lg rounded mx-3 p-1 my-8">
+            <!-- card 1-->
+            <div class="card w-custom m-2 flex rounded-xl bg-slate-800 p-0">
+                <iframe type="text/html" class="w-1/2 sm:w-1/3 lg:w-5/12 aspect-video rounded-l-xl"
+                    src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="0" allowfullscreen></iframe>
+                <div class="w-1/2 sm:w-2/3 lg:w-7/12 pt-6 p-3 text-left space-y-4">
+                    <blockquote>
+                        <p class="text-lg font-medium text-slate-200">
+                            Youtube Title
+                        </p>
+                    </blockquote>
+                    <figcaption class="font-medium">
+                        <a href="index.html" class="text-sky-400">
+                            Channel
+                        </a>
+                        <div class="text-slate-500">
+                            Youtube
                         </div>
-                        <!-- card 2 -->
-                        <div class="card">
-                            <figure class="md:flex rounded-xl p-8 md:p-0 bg-slate-800">
-                                <iframe class="w-full aspect-video"src= "youtube video api"></iframe>
-                                <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-                                  <blockquote>
-                                    <p class="text-lg font-medium text-white">
-                                        Contents of article of from the steam news link
-                                    </p>
-                                  </blockquote>
-                                  <figcaption class="font-medium">
-                                    <div class="text-sky-400">
-                                      Title of article from steam news
-                                    </div>
-                                    <div class="text-slate-500">
-                                      author of article 
-                                    </div>
-                                  </figcaption>
-                                </div>
-                              </figure>
+                    </figcaption>
+                </div>
+            </div>
+            <!-- card 2 -->
+            <div class="card w-custom m-2 flex rounded-xl bg-slate-800 p-0">
+                <iframe type="text/html" class="w-1/2 sm:w-1/3 lg:w-5/12 aspect-video rounded-l-xl"
+                    src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="0" allowfullscreen></iframe>
+                <div class="w-1/2 sm:w-2/3 lg:w-7/12 pt-6 p-3 text-left space-y-4">
+                    <blockquote>
+                        <p class="text-lg font-medium text-slate-200">
+                            Youtube Title
+                        </p>
+                    </blockquote>
+                    <figcaption class="font-medium">
+                        <a href="index.html" class="text-sky-400">
+                            Channel
+                        </a>
+                        <div class="text-slate-500">
+                            Youtube
                         </div>
-                        <!-- card 3 -->
-                        <figure class="md:flex rounded-xl p-8 md:p-0 bg-slate-800">
-                            <iframe class="w-full aspect-video"src= "youtube video api"></iframe>
-                            <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-                              <blockquote>
-                                <p class="text-lg font-medium text-white">
-                                  Contents of article from the steam link news
-                                </p>
-                              </blockquote>
-                              <figcaption class="font-medium">
-                                <div class="text-sky-400">
-                                  Title with links
-                                </div>
-                                <div class="text-slate-500">
-                                  Author of article 
-                                </div>
-                              </figcaption>
-                            </div>
-                          </figure>
-                    </div>
-            </section>
-                
+                    </figcaption>
+                </div>
+            </div>
+            <!-- card 3 -->
+            <div class="card w-custom m-2 flex rounded-xl bg-slate-800 p-0">
+                <iframe type="text/html" class="w-1/2 sm:w-1/3 lg:w-5/12 aspect-video rounded-l-xl"
+                    src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="0" allowfullscreen></iframe>
+                <div class="w-1/2 sm:w-2/3 lg:w-7/12 pt-6 p-3 text-left space-y-4">
+                    <blockquote>
+                        <p class="text-lg font-medium text-slate-200">
+                            Youtube Title
+                        </p>
+                    </blockquote>
+                    <figcaption class="font-medium">
+                        <a href="index.html" class="text-sky-400">
+                            Channel
+                        </a>
+                        <div class="text-slate-500">
+                            Youtube
+                        </div>
+                    </figcaption>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="text-center bg-gradient-to-r from-slate-900 to-slate-600">
         <h1 class="text-2xl font-extrabold text-slate-200 p-2">Insert Nav Bar</h1>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="./assets/script/script.js"></script>
 </body>
 
