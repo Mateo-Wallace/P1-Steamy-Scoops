@@ -36,8 +36,8 @@ function apiSearch(search) {
 			var appIdData = data[0].appId
 			var searchData = data
 			var videoTitle = data[0].title
-			steamNews (appIdData)
-			steamAppDetail (appIdData, searchData)
+			steamNews(appIdData)
+			steamAppDetail(appIdData, searchData)
 			youtubeApi(videoTitle)
 		})
 		.catch(err => console.error(err));
@@ -45,22 +45,35 @@ function apiSearch(search) {
 
 //adds the "guide" keyword to the game title and pulls up the relevant video(s)
 function youtubeApi(videoTitle) {
-	fetch(apiYoutubeUrl+ videoTitle + '%20guide&hl=en&gl=US',optionsYoutube)
+	fetch(apiYoutubeUrl + videoTitle + '%20guide&hl=en&gl=US', optionsYoutube)
 		.then(response => response.json())
 		.then(function (videoData) {
-		renderYoutube(videoData)
+			renderYoutube(videoData)
 		})
 		.catch(err => console.error(err));
-	}
+}
 
 // Adds information from youtube api to page
-function renderYoutube (videoData) {
+function renderYoutube(videoData) {
 	var videoId = videoData.contents[1].video.videoId
 }
 
 // FETCH Call fetch api for steam news and pull down data
-function steamNews (appIdData) {
+function steamNews(appIdData) {
 	console.log(appIdData)
+	const steamNewsUrl = 'https://steam2.p.rapidapi.com/newsForApp/' + appIdData + '/limit/10/300'
+	fetch(steamNewsUrl, options)
+		.then(response => response.json())
+		.then(function (data) {
+			var newsData = data
+			renderSteamNews(newsData)
+		})
+		.catch(err => console.error(err));
+}
+
+// Adds information from steam news to page
+function renderSteamNews(newsData) {
+	console.log(newsData)
 }
 
 // FETCH Call fetch to get app details
@@ -70,13 +83,13 @@ function steamAppDetail(appIdData, searchData) {
 		.then(response => response.json())
 		.then(function (data) {
 			var appDetailData = data
-			renderAppDetailData (appDetailData, searchData)
+			renderAppDetailData(appDetailData, searchData)
 		})
 		.catch(err => console.error(err));
 }
 
 // Render relevant game data to the page, using the data from steam search api
-function renderAppDetailData (appDetailData, searchData) {
+function renderAppDetailData(appDetailData, searchData) {
 	gameInformationEl.innerHTML = ''
 	gameImageEl.innerHTML = ''
 	console.log(appDetailData)
