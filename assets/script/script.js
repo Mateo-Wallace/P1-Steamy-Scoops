@@ -48,23 +48,15 @@ function youtubeApi(videoTitle) {
 	fetch(apiYoutubeUrl+ videoTitle + '%20guide&hl=en&gl=US',optionsYoutube)
 		.then(response => response.json())
 		.then(function (videoData) {
-		var videoId = videoData.contents[1].video.videoId
-		console.log(videoId, "<-- This is the video ID!")
-		streamVideo(videoId)
+		renderYoutube(videoData)
 		})
 		.catch(err => console.error(err));
 	}
-// streams the video ID fed to it from the previous function
-	function streamVideo(videoId) {
-		fetch(streamUrl + videoId ,optionsYoutube)
-			.then(response => response.json())
-			.then(function (data) {
-			var streamData = data
-			console.log(streamData)
-			})
-			.catch(err => console.error(err));
-		}
 
+// Adds information from youtube api to page
+function renderYoutube (videoData) {
+	var videoId = videoData.contents[1].video.videoId
+}
 
 // FETCH Call fetch api for steam news and pull down data
 function steamNews (appIdData) {
@@ -130,7 +122,6 @@ function renderAppDetailData (appDetailData, searchData) {
 	// Adds text content to appended elements
 	titleEl.innerText = title
 	informationEl.innerHTML = description + '<br><br>Price: ' + price
-
 }
 
 function handleSearchFormSubmit(e) {
