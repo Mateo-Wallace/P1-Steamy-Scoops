@@ -1,14 +1,10 @@
-// Need to put optionsNews on steamNews fetch, need to call steamAppDetail in apiSearch, need to pull up 
-
 // Global Variables
 const apiKey = "7ca66c0b57msh5f0900adbde527ap12f1d6jsn65ee2844dd63"
 const apiUrl = 'https://steam2.p.rapidapi.com/search/'
 const apiYoutubeUrl = `https://youtube138.p.rapidapi.com/search/?q=`
 const streamUrl = 'https://youtube138.p.rapidapi.com/video/streaming-data/?id='
-const youtubeLink = "https://www.youtube.com/embed/"
 
 // options file for the search and details api
-
 const options = {
 	method: 'GET',
 	headers: {
@@ -41,6 +37,7 @@ const gameInformationEl = document.getElementById('game-information')
 const gameImageEl = document.getElementById('game-image')
 const asideTopEl = document.getElementById('aside-top')
 const newsCardsEl = document.getElementById('news-cards')
+const youtubeCardsEl = document.getElementById('youtube-cards')
 
 // FETCH Function to pull AppId data from Steam API
 function apiSearch(search) {
@@ -59,34 +56,68 @@ function apiSearch(search) {
 
 //adds the "guide" keyword to the game title and pulls up the relevant video(s)
 function youtubeApi(videoTitle) {
-	fetch(apiYoutubeUrl + videoTitle + '%20guide&hl=en&gl=US', optionsYoutube)
+	fetch(apiYoutubeUrl + videoTitle + '+news' + '%20guide&hl=en&gl=US', optionsYoutube)
 		.then(response => response.json())
 		.then(function (videoData) {
 			renderYoutube(videoData)
 		})
-
 		.catch(err => console.error(err));
 }
 
 // Adds information from youtube api to page
-function renderYoutube (videoData) {
-	var videoId1 = videoData.contents[0].video.videoId
-	var videoId2 = videoData.contents[1].video.videoId
-	var videoId3 = videoData.contents[2].video.videoId
-	var videoIds = [videoId1, videoId2, videoId3]
-	videoLoader(videoIds);
-	console.log(videoIds, "These are the three video IDs")
+function renderYoutube(videoData) {
+	youtubeCardsEl.innerHTML = ''
+	youtubeCardsEl.removeAttribute('class')
+	youtubeCardsEl.setAttribute('class', 'grid grid-cols-1 lg:grid-cols-3 gap-auto justify-items-center bg-slate-600/80 shadow-lg rounded mx-3 p-1 my-8')
+
+	// Loop through first 3 search results
+	for (let i = 0; i < 3; i++) {
+		// create variables for data values
+		var title = videoData.contents[i].video.title
+		var author = videoData.contents[i].video.author.title
+		var videoId = videoData.contents[i].video.videoId
+		var urlVideoLink = 'https://www.youtube.com/watch?v=' + videoId
+		var embedVideoLink = 'https://www.youtube.com/embed/' + videoId
+
+		// Create element tags 
+		var urlATag = document.createElement('a')
+		var iframeEl = document.createElement('iframe')
+		var quoteDivEl = document.createElement('div')
+		var titleEl = document.createElement('p')
+		var figcaptionEl = document.createElement('figcaption')
+		var channelEl = document.createElement('p')
+		var youtubeEl = document.createElement('div')
+
+		// append and style elements to document
+		youtubeCardsEl.appendChild(urlATag)
+		urlATag.setAttribute('class', 'card w-custom m-2 flex rounded-xl bg-slate-800 p-0 bounce-custom')
+		urlATag.setAttribute('href', urlVideoLink)
+		urlATag.setAttribute('target', '_blank')
+		urlATag.setAttribute('rel', 'noopener noreferrer')
+		urlATag.appendChild(iframeEl)
+		iframeEl.setAttribute('type', 'text/html')
+		iframeEl.setAttribute('class', 'w-1/2 sm:w-1/3 lg:w-5/12 aspect-video rounded-l-xl')
+		iframeEl.setAttribute('frameborder', '0')
+		iframeEl.setAttribute('allowfullscreen', '')
+		iframeEl.setAttribute('src', embedVideoLink)
+		urlATag.appendChild(quoteDivEl)
+		quoteDivEl.setAttribute('class', 'w-1/2 sm:w-2/3 lg:w-7/12 pt-6 p-3 text-left space-y-4')
+		quoteDivEl.appendChild(titleEl)
+		titleEl.setAttribute('class', 'text-lg font-medium text-slate-200')
+		quoteDivEl.appendChild(figcaptionEl)
+		figcaptionEl.setAttribute('class', 'font-medium')
+		figcaptionEl.appendChild(channelEl)
+		channelEl.setAttribute('class', 'text-sky-400')
+		figcaptionEl.appendChild(youtubeEl)
+		youtubeEl.setAttribute('class', 'text-slate-500')
+
+		// add text to page
+		titleEl.innerText = title
+		channelEl.innerText = author
+		youtubeEl.innerText = 'Youtube'
+	}
 }
 
-	function videoLoader(videoIds) {
-		var url1 = youtubeLink + videoIds[0];
-		var url2 = youtubeLink + videoIds[1];
-		var url3 = youtubeLink + videoIds[2];
-		$('#myIframe1').attr('src', url1)
-		$('#myIframe2').attr('src', url2)
-		$('#myIframe3').attr('src', url3)
-	}
-	
 // FETCH Call fetch api for steam news and pull down data
 function steamNews(appIdData) {
 	const steamNewsUrl = 'https://steam2.p.rapidapi.com/newsForApp/' + appIdData + '/limit/4/300'
@@ -105,14 +136,13 @@ function renderSteamNews(newsData) {
 	newsCardsEl.removeAttribute('class')
 	newsCardsEl.setAttribute('class', 'grid grid-cols-1 lg:grid-cols-3 gap-auto flex bg-slate-600/80 justify-around rounded m-3 p-1')
 
-// Loop through first 3 search results
+	// Loop through first 3 search results
 	for (let i = 0; i < 3; i++) {
 		// create variables for data values
 		var author = newsData.newsitems[i].author
 		var contents = newsData.newsitems[i].feedlabel
 		var title = newsData.newsitems[i].title
 		var url = newsData.newsitems[i].url
-		console.log(author, contents, title, url)
 
 		// Create element tags 
 		var urlATag = document.createElement('a')
@@ -151,7 +181,7 @@ function renderSteamNews(newsData) {
 		contentsEl.innerText = contents
 		titleEl.innerText = title
 		authorEl.innerText = author
-	  }
+	}
 }
 
 // FETCH Call fetch to get app details
@@ -207,7 +237,6 @@ function renderAppDetailData(appDetailData, searchData) {
 	linkEl.appendChild(imgEl)
 	imgEl.setAttribute('class', 'image-custom rounded bounce-custom')
 	imgEl.setAttribute('src', imgUrl)
-
 
 	// Adds text content to appended elements
 	titleEl.innerText = title
