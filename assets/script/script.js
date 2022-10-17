@@ -5,7 +5,10 @@ const apiKey = "7ca66c0b57msh5f0900adbde527ap12f1d6jsn65ee2844dd63"
 const apiUrl = 'https://steam2.p.rapidapi.com/search/'
 const apiYoutubeUrl = `https://youtube138.p.rapidapi.com/search/?q=`
 const streamUrl = 'https://youtube138.p.rapidapi.com/video/streaming-data/?id='
+const youtubeLink = "https://www.youtube.com/embed/"
+
 // options file for the search and details api
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -61,15 +64,29 @@ function youtubeApi(videoTitle) {
 		.then(function (videoData) {
 			renderYoutube(videoData)
 		})
+
 		.catch(err => console.error(err));
 }
 
 // Adds information from youtube api to page
-function renderYoutube(videoData) {
-	var videoId = videoData.contents[1].video.videoId
-	
+function renderYoutube (videoData) {
+	var videoId1 = videoData.contents[0].video.videoId
+	var videoId2 = videoData.contents[1].video.videoId
+	var videoId3 = videoData.contents[2].video.videoId
+	var videoIds = [videoId1, videoId2, videoId3]
+	videoLoader(videoIds);
+	console.log(videoIds, "These are the three video IDs")
 }
 
+	function videoLoader(videoIds) {
+		var url1 = youtubeLink + videoIds[0];
+		var url2 = youtubeLink + videoIds[1];
+		var url3 = youtubeLink + videoIds[2];
+		$('#myIframe1').attr('src', url1)
+		$('#myIframe2').attr('src', url2)
+		$('#myIframe3').attr('src', url3)
+	}
+	
 // FETCH Call fetch api for steam news and pull down data
 function steamNews(appIdData) {
 	const steamNewsUrl = 'https://steam2.p.rapidapi.com/newsForApp/' + appIdData + '/limit/4/300'
