@@ -32,7 +32,7 @@ footer {
 }
 
 .overflow-wrap {
-    overflow-wrap: break-word;
+    overflow-wrap: break-all;
 }
 
 .max-width {
