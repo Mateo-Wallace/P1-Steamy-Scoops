@@ -1,6 +1,6 @@
 
-# Project Name:
-Git Good
+# Project Name: Steamy Scoops
+
     
 ## Introduction:
 This is the firsrt project of the Bu10 Bois. It is the first project assigned in our UCF bootcamp. It is a collabration bewtween Andrew Gibbs, Mateo Wallace, Jose Leyva,Noel Stafford using the knowledge that we have been taught so far to showcase our skills in building this project.
