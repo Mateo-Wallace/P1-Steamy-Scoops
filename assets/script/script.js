@@ -202,8 +202,31 @@ function handleSearchFormSubmit(e) {
 	var rawSearch = gameSearch.value.trim();
 	var search = rawSearch.charAt(0).toUpperCase() + rawSearch.slice(1).toLowerCase();
 	apiSearch(search);
+	store(search) 
 	gameSearch.value = '';
 }
 
+var games = [];
+
+function store(search) {
+games.push(search)
+localStorage.setItem('Game', JSON.stringify(games))
+console.log(search);
+}
+
+function renderLocal(){
+	let bro = localStorage.getItem('Game', );
+	JSON.parse(bro)
+console.log(bro);
+for (let index = 0; i < Game.length; index++) {
+	const element = Game[index];
+	
+}
+createElement(listEl)
+	listEl.setAttribute('class', 'background: purple', 'color:white')
+	listEl.appendChild(Game)
+	console.log(Game);
+}
+searchForm.addEventListener('focus', renderLocal);
 searchButton.addEventListener("click", handleSearchFormSubmit);
 searchForm.addEventListener('submit', handleSearchFormSubmit);
