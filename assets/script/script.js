@@ -90,7 +90,7 @@ function renderYoutube(videoData) {
 
 		// append and style elements to document
 		youtubeCardsEl.appendChild(urlATag)
-		urlATag.setAttribute('class', 'card w-custom m-2 flex rounded-xl bg-slate-800 p-0 bounce-custom')
+		urlATag.setAttribute('class', 'card m-2 flex rounded-xl bg-slate-800 p-0 bounce-custom border-none hover:border-solid border-2 border-purple-700 youtube-width')
 		urlATag.setAttribute('href', urlVideoLink)
 		urlATag.setAttribute('target', '_blank')
 		urlATag.setAttribute('rel', 'noopener noreferrer')
@@ -157,7 +157,7 @@ function renderSteamNews(newsData) {
 
 		// append and style elements to document
 		newsCardsEl.appendChild(urlATag)
-		urlATag.setAttribute('class', 'w-custom m-2 card flex rounded-xl p-0 bg-slate-800 bounce-custom')
+		urlATag.setAttribute('class', 'm-2 card flex rounded-xl p-0 bg-slate-800 bounce-custom border-none hover:border-solid border-2 border-purple-700')
 		urlATag.setAttribute('href', url)
 		urlATag.setAttribute('target', '_blank')
 		urlATag.setAttribute('rel', 'noopener noreferrer')
@@ -235,7 +235,7 @@ function renderAppDetailData(appDetailData, searchData) {
 	gameImageEl.setAttribute('class', 'w-11/12 max-width m-2 center-custom')
 	linkEl.setAttribute('href', steamLink)
 	linkEl.appendChild(imgEl)
-	imgEl.setAttribute('class', 'image-custom rounded bounce-custom')
+	imgEl.setAttribute('class', 'image-custom rounded bounce-custom border-none hover:border-solid border-2 border-purple-700')
 	imgEl.setAttribute('src', imgUrl)
 
 	// Adds text content to appended elements

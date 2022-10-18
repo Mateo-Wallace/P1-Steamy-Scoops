@@ -39,6 +39,10 @@ footer {
     max-width: 500px;
 }
 
+.youtube-width {
+    width: 98%;
+}
+
 /* Centers game image */
 .center-custom {
     align-items: center;
@@ -51,8 +55,10 @@ footer {
     max-height: 400px;
 }
 
-.w-custom {
-    width: 98%;
+.image-custom-about {
+    display: block;
+    max-width:90px;
+    max-height:90px;
 }
 
 /* Media Querie */
