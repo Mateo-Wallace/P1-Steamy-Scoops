@@ -90,7 +90,7 @@ function renderYoutube(videoData) {
 
 		// append and style elements to document
 		youtubeCardsEl.appendChild(urlATag)
-		urlATag.setAttribute('class', 'card m-2 flex rounded-xl bg-slate-800 p-0 bounce-custom border-none hover:border-solid border-2 border-purple-700')
+		urlATag.setAttribute('class', 'card m-2 flex rounded-xl bg-slate-800 p-0 bounce-custom border-none hover:border-solid border-2 border-purple-700 youtube-width')
 		urlATag.setAttribute('href', urlVideoLink)
 		urlATag.setAttribute('target', '_blank')
 		urlATag.setAttribute('rel', 'noopener noreferrer')
