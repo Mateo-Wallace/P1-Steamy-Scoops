@@ -38,6 +38,7 @@ const gameInformationEl = document.getElementById('game-information')
 const gameImageEl = document.getElementById('game-image')
 const asideTopEl = document.getElementById('aside-top')
 const newsCardsEl = document.getElementById('news-cards')
+const lastSearchBtn = document.getElementById('lastSearchButton')
 
 // FETCH Function to pull AppId data from Steam API
 function apiSearch(search) {
@@ -197,36 +198,40 @@ function renderAppDetailData(appDetailData, searchData) {
 	informationEl.innerHTML = description + '<br><br>Price: ' + price
 }
 
+
+
+function storeSearch(search) {
+	localStorage.setItem("gameKey", search)
+	renderLocal();
+}
+
+
+function renderLocal() {
+	lastSearchBtn.innerText = "";
+	  var lastSearch = localStorage.getItem(localStorage.key(0));
+	  console.log(lastSearch)
+	  lastSearchBtn.innerText = lastSearch;
+	  lastSearchBtn.addEventListener('click', handleSearchFormSubmit);
+
+  }
+  
+  renderLocal();
+
+
 function handleSearchFormSubmit(e) {
 	e.preventDefault();
 	var rawSearch = gameSearch.value.trim();
 	var search = rawSearch.charAt(0).toUpperCase() + rawSearch.slice(1).toLowerCase();
 	apiSearch(search);
-	store(search) 
+	storeSearch(search) 
 	gameSearch.value = '';
 }
 
-var games = [];
 
-function store(search) {
-games.push(search)
-localStorage.setItem('Game', JSON.stringify(games))
-console.log(search);
-}
 
-function renderLocal(){
-	let bro = localStorage.getItem('Game', );
-	JSON.parse(bro)
-console.log(bro);
-for (let index = 0; i < Game.length; index++) {
-	const element = Game[index];
-	
-}
-createElement(listEl)
-	listEl.setAttribute('class', 'background: purple', 'color:white')
-	listEl.appendChild(Game)
-	console.log(Game);
-}
-searchForm.addEventListener('focus', renderLocal);
+
+
+// lastSearchBtn.addEventListener('click', renderLocal);
 searchButton.addEventListener("click", handleSearchFormSubmit);
 searchForm.addEventListener('submit', handleSearchFormSubmit);
+
