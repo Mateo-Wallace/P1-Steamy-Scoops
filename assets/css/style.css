@@ -51,6 +51,12 @@ footer {
     max-height: 400px;
 }
 
+.image-custom-about {
+    display: block;
+    max-width:90px;
+    max-height:90px;
+}
+
 /* Media Querie */
 
 @media screen and (max-width: 1024px) {
