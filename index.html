@@ -14,13 +14,15 @@
 <body class="bg-custom">
 
     <header class="text-center bg-gradient-to-r from-slate-900 to-slate-600">
-        <h1 class="text-5xl font-extrabold text-slate-200 p-2"><a href="./index.html" class="text-reset"><i
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-200 p-2"><a href="./index.html" class="text-reset"><i
                     class="fa-solid fa-gamepad bounce-custom rounded-full"></i></a> Steamy Scoops</h1>
     </header>
+
     <main>
 
-
+        <!-- Top Section with search bar and game info -->
         <aside id="aside-top" class="grid grid-cols-1 lg:grid-cols-2 m-2 gap-auto justify-items-center">
+            <!-- Search Bar -->
             <div
                 class="w-11/12 max-width rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200 px-6 py-4 ">
                 <h2 class="font-bold text-xl mb-2">Find a game you're interested in!</h2>
@@ -36,8 +38,7 @@
                     class="shadow bg-purple-800 hover:bg-purple-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mt-2"
                     type="button" id="lastSearchButton">Last Search!</button>
             </div>
-
-            <!-- Targetted by renderSearchData -->
+            <!-- Instructions and Game Information -->
             <div id='game-information'
                 class="w-11/12 max-width rounded overflow-hidden shadow-lg m-2 bg-slate-800/90 text-slate-200">
                 <div class="px-6 py-4">
@@ -50,7 +51,6 @@
                     </p>
                 </div>
             </div>
-
             <!-- Image of video game -->
             <div id="game-image" class="w-11/12 max-width m-2 center-custom">
             </div>
@@ -60,13 +60,34 @@
         <section id="news-cards">
         </section>
 
-        <!-- youtube card area -->
+        <!-- Youtube News -->
         <section id="youtube-cards">
         </section>
     </main>
 
-    <footer class="text-center bg-gradient-to-r from-slate-900 to-slate-600">
-        <h1 class="text-2xl font-extrabold text-slate-200 p-2">Insert Nav Bar</h1>
+    <!-- Nav Bar Footer -->
+    <footer class="bg-gradient-to-r from-slate-900 to-slate-600 grid grid-cols-1 justify-items-center ">
+        <nav class="grid grid-cols-2 sm:grid-cols-4 justify-items-center max-w-7xl w-10/12">
+            <div class="py-3 text-center">
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="text-slate-200 hover:bg-slate-700 sm:hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About
+                    Us</a>
+            </div>
+            <div class="py-3 text-center">
+                <a href="https://github.com/Mateo-Wallace/P1-Steamy-Scoops" target="_blank" rel="noopener noreferrer"
+                    class="text-slate-200 hover:bg-slate-800 sm:hover:bg-slate-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">GitHub</a>
+            </div>
+            <div class="py-3 text-center">
+                <a href="https://rapidapi.com/psimavel/api/steam2/" target="_blank" rel="noopener noreferrer"
+                    class="text-slate-200 hover:bg-slate-700 sm:hover:bg-slate-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Steam
+                    API</a>
+            </div>
+            <div class="py-3 text-center">
+                <a href="https://rapidapi.com/Glavier/api/youtube138/" target="_blank" rel="noopener noreferrer"
+                    class="text-slate-200 hover:bg-slate-800 sm:hover:bg-slate-800 hover:text-white px-2 py-2 rounded-md text-sm font-medium">Youtube
+                    API</a>
+            </div>
+        </nav>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
