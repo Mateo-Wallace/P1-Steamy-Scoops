@@ -28,13 +28,11 @@ To use Steamy Scoops, simply navigate to [https://mateo-wallace.github.io/P1-Ste
 
 ### Display
 
-Below you will find examples of how the web app appears at start, after one term has been searched, and when you click the "About Us" tab:
+Below you will find examples of how the web app appears at start and after one term has been searched:
 
 ![image of deployed site displaying without any games searched](./assets/images/deployedHome.png)
 
 ![image of deployed site displaying with a game searched](./assets/images/deployedSearch.png)
-
-![image of about us page](https://via.placeholder.com/150)
 
 ## Usage
 

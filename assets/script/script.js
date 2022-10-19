@@ -272,7 +272,7 @@ function storeSearch(search) {
 
 // Determines if item in local storage has a value
 function renderLocal() {
-	var lastSearch = localStorage.getItem(localStorage.key(0));
+	var lastSearch = localStorage.getItem("gameKey");
 	if (lastSearch == null) {
 		return
 	} else {
