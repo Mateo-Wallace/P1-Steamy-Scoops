@@ -71,17 +71,25 @@ function renderYoutube(videoData) {
 	youtubeCardsEl.removeAttribute('class')
 	youtubeCardsEl.setAttribute('class', 'bg-slate-600/80 shadow-lg rounded mx-3 p-1 my-8')
 
-		// Adds title to top of Youtube News
-		var gridTitleEl = document.createElement('h2')
-		youtubeCardsEl.appendChild(gridTitleEl)
-		gridTitleEl.setAttribute('class', 'font-bold text-2xl mt-2 text-center text-slate-100')
-		gridTitleEl.innerText = 'Youtube News'
-		var gridDivEl = document.createElement('div')
-		youtubeCardsEl.appendChild(gridDivEl)
-		gridDivEl.setAttribute('class', 'grid grid-cols-1 lg:grid-cols-3 gap-auto justify-items-center')
+	// Adds title to top of Youtube News
+	var gridTitleEl = document.createElement('h2')
+	youtubeCardsEl.appendChild(gridTitleEl)
+	gridTitleEl.setAttribute('class', 'font-bold text-2xl mt-2 text-center text-slate-100')
+	gridTitleEl.innerText = 'Youtube News'
+	var gridDivEl = document.createElement('div')
+	youtubeCardsEl.appendChild(gridDivEl)
+	gridDivEl.setAttribute('class', 'grid grid-cols-1 lg:grid-cols-3 gap-auto justify-items-center')
 
 	// Loop through first 3 search results
-	for (let i = 0; i < 3; i++) {
+	var n = 3
+	for (let i = 0; i < n; i++) {
+
+		// checks if the type of content being displayed is a video
+		while (videoData.contents[i].type != "video") {
+			i++
+			n++
+		}
+
 		// create variables for data values
 		var title = videoData.contents[i].video.title
 		var author = videoData.contents[i].video.author.title
@@ -273,7 +281,7 @@ function storeSearch(search) {
 // Determines if item in local storage has a value
 function renderLocal() {
 	var lastSearch = localStorage.getItem("gameKey");
-	if (lastSearch == null) {
+	if (lastSearch == null | lastSearch == '') {
 		return
 	} else {
 		lastSearchBtn.innerText = "";
