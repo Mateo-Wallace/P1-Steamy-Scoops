@@ -24,7 +24,7 @@ Together we learned to:
 
 ### Link
 
-To use Steamy Scoops, simply navigate to [https://yourWebsiteHere.com/](https://choosealicense.com/)
+To use Steamy Scoops, simply navigate to [https://mateo-wallace.github.io/P1-Steamy-Scoops/](https://mateo-wallace.github.io/P1-Steamy-Scoops/)
 
 ### Display
 
@@ -95,12 +95,10 @@ SOFTWARE.
 ## Technology
 
 <p float="left">
- <img src="./assets/images/html.png" width="100" />
+  <img src="./assets/images/html.png" width="100" />
   <img src="./assets/images/css3.png" width="100" />
- <img src="./assets/images/JavaScript-logo.png" width="100" />
-  <img src="./assets/images/Tailwind-img.png" width="100" />
+  <img src="./assets/images/JavaScript-logo.png" width="100" />
+  <img src="./assets/images/tailwindcsslogo-label.png" width="100" />
   <img src="./assets/images/jquery.png" width="100" />
   <img src="./assets/images/markdown-logo.png" width="100" />
 </p>
-
-[](./assets/images/Tailwind-img.png)
