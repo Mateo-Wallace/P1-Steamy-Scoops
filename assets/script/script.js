@@ -37,6 +37,7 @@ const gameInformationEl = document.getElementById('game-information')
 const gameImageEl = document.getElementById('game-image')
 const asideTopEl = document.getElementById('aside-top')
 const newsCardsEl = document.getElementById('news-cards')
+const lastSearchBtn = document.getElementById('lastSearchButton')
 const youtubeCardsEl = document.getElementById('youtube-cards')
 
 // FETCH Function to pull AppId data from Steam API
@@ -263,13 +264,42 @@ function renderAppDetailData(appDetailData, searchData) {
 	informationEl.innerHTML = description + '<br><br>Price: ' + price
 }
 
+// stores last user input in local
+function storeSearch(search) {
+	localStorage.setItem("gameKey", search)
+	renderLocal();
+}
+
+// Determines if item in local storage has a value
+function renderLocal() {
+	var lastSearch = localStorage.getItem(localStorage.key(0));
+	if (lastSearch == null) {
+		return
+	} else {
+		lastSearchBtn.innerText = "";
+		lastSearchBtn.innerText = lastSearch;
+		lastSearchBtn.addEventListener('click', handleLastSearchSubmit);
+	}
+}
+
+// Targets Last Search Button and runs function
+function handleLastSearchSubmit(e) {
+	apiSearch(e.target.textContent)
+}
+
+// Filters user input to streamline results
 function handleSearchFormSubmit(e) {
 	e.preventDefault();
 	var rawSearch = gameSearch.value.trim();
 	var search = rawSearch.charAt(0).toUpperCase() + rawSearch.slice(1).toLowerCase();
 	apiSearch(search);
+	storeSearch(search)
 	gameSearch.value = '';
 }
 
+// Update Last Search Button on page load
+renderLocal();
+
+// lastSearchBtn.addEventListener('click', renderLocal);
 searchButton.addEventListener("click", handleSearchFormSubmit);
 searchForm.addEventListener('submit', handleSearchFormSubmit);
