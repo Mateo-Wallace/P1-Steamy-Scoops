@@ -68,7 +68,16 @@ function youtubeApi(videoTitle) {
 function renderYoutube(videoData) {
 	youtubeCardsEl.innerHTML = ''
 	youtubeCardsEl.removeAttribute('class')
-	youtubeCardsEl.setAttribute('class', 'grid grid-cols-1 lg:grid-cols-3 gap-auto justify-items-center bg-slate-600/80 shadow-lg rounded mx-3 p-1 my-8')
+	youtubeCardsEl.setAttribute('class', 'bg-slate-600/80 shadow-lg rounded mx-3 p-1 my-8')
+
+		// Adds title to top of Youtube News
+		var gridTitleEl = document.createElement('h2')
+		youtubeCardsEl.appendChild(gridTitleEl)
+		gridTitleEl.setAttribute('class', 'font-bold text-2xl mt-2 text-center text-slate-100')
+		gridTitleEl.innerText = 'Youtube News'
+		var gridDivEl = document.createElement('div')
+		youtubeCardsEl.appendChild(gridDivEl)
+		gridDivEl.setAttribute('class', 'grid grid-cols-1 lg:grid-cols-3 gap-auto justify-items-center')
 
 	// Loop through first 3 search results
 	for (let i = 0; i < 3; i++) {
@@ -89,7 +98,7 @@ function renderYoutube(videoData) {
 		var youtubeEl = document.createElement('div')
 
 		// append and style elements to document
-		youtubeCardsEl.appendChild(urlATag)
+		gridDivEl.appendChild(urlATag)
 		urlATag.setAttribute('class', 'card m-2 flex rounded-xl bg-slate-800 p-0 bounce-custom border-none hover:border-solid border-2 border-purple-700 youtube-width')
 		urlATag.setAttribute('href', urlVideoLink)
 		urlATag.setAttribute('target', '_blank')
@@ -134,7 +143,16 @@ function steamNews(appIdData) {
 function renderSteamNews(newsData) {
 	newsCardsEl.innerHTML = ''
 	newsCardsEl.removeAttribute('class')
-	newsCardsEl.setAttribute('class', 'grid grid-cols-1 lg:grid-cols-3 gap-auto flex bg-slate-600/80 justify-around rounded m-3 p-1')
+	newsCardsEl.setAttribute('class', 'bg-slate-600/80 rounded m-3 p-1')
+
+	// Adds title to top of Steam News
+	var gridTitleEl = document.createElement('h2')
+	newsCardsEl.appendChild(gridTitleEl)
+	gridTitleEl.setAttribute('class', 'font-bold text-2xl mt-2 text-center text-slate-100')
+	gridTitleEl.innerText = 'Steam News'
+	var gridDivEl = document.createElement('div')
+	newsCardsEl.appendChild(gridDivEl)
+	gridDivEl.setAttribute('class', 'grid grid-cols-1 lg:grid-cols-3 gap-auto flex justify-around')
 
 	// Loop through first 3 search results
 	for (let i = 0; i < 3; i++) {
@@ -156,7 +174,7 @@ function renderSteamNews(newsData) {
 		var authorEl = document.createElement('div')
 
 		// append and style elements to document
-		newsCardsEl.appendChild(urlATag)
+		gridDivEl.appendChild(urlATag)
 		urlATag.setAttribute('class', 'm-2 card flex rounded-xl p-0 bg-slate-800 bounce-custom border-none hover:border-solid border-2 border-purple-700')
 		urlATag.setAttribute('href', url)
 		urlATag.setAttribute('target', '_blank')
@@ -234,6 +252,8 @@ function renderAppDetailData(appDetailData, searchData) {
 	gameImageEl.appendChild(linkEl)
 	gameImageEl.setAttribute('class', 'w-11/12 max-width m-2 center-custom')
 	linkEl.setAttribute('href', steamLink)
+	linkEl.setAttribute('target', '_blank')
+	linkEl.setAttribute('rel', 'noopener noreferrer')
 	linkEl.appendChild(imgEl)
 	imgEl.setAttribute('class', 'image-custom rounded bounce-custom border-none hover:border-solid border-2 border-purple-700')
 	imgEl.setAttribute('src', imgUrl)
