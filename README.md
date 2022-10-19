@@ -24,7 +24,7 @@ Together we learned to:
 
 ### Link
 
-To use Steamy Scoops, simply navigate to [https://yourWebsiteHere.com/](https://choosealicense.com/)
+To use Steamy Scoops, simply navigate to [https://mateo-wallace.github.io/P1-Steamy-Scoops/](https://mateo-wallace.github.io/P1-Steamy-Scoops/)
 
 ### Display
 
