@@ -95,12 +95,10 @@ SOFTWARE.
 ## Technology
 
 <p float="left">
- <img src="./assets/images/html.png" width="100" />
+  <img src="./assets/images/html.png" width="100" />
   <img src="./assets/images/css3.png" width="100" />
- <img src="./assets/images/JavaScript-logo.png" width="100" />
-  <img src="./assets/images/Tailwind-img.png" width="100" />
+  <img src="./assets/images/JavaScript-logo.png" width="100" />
+  <img src="./assets/images/tailwindcsslogo-label.png" width="100" />
   <img src="./assets/images/jquery.png" width="100" />
   <img src="./assets/images/markdown-logo.png" width="100" />
 </p>
-
-[](./assets/images/Tailwind-img.png)
