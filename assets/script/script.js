@@ -68,7 +68,7 @@ function youtubeApi(videoTitle) {
 // Adds information from youtube api to page
 function renderYoutube(videoData) {
 	var videoId = videoData.contents[1].video.videoId
-	
+
 }
 
 // FETCH Call fetch api for steam news and pull down data
@@ -89,7 +89,7 @@ function renderSteamNews(newsData) {
 	newsCardsEl.removeAttribute('class')
 	newsCardsEl.setAttribute('class', 'grid grid-cols-1 lg:grid-cols-3 gap-auto flex bg-slate-600/80 justify-around rounded m-3 p-1')
 
-// Loop through first 3 search results
+	// Loop through first 3 search results
 	for (let i = 0; i < 3; i++) {
 		// create variables for data values
 		var author = newsData.newsitems[i].author
@@ -135,7 +135,7 @@ function renderSteamNews(newsData) {
 		contentsEl.innerText = contents
 		titleEl.innerText = title
 		authorEl.innerText = author
-	  }
+	}
 }
 
 // FETCH Call fetch to get app details
@@ -198,40 +198,42 @@ function renderAppDetailData(appDetailData, searchData) {
 	informationEl.innerHTML = description + '<br><br>Price: ' + price
 }
 
-
-
+// stores last user input in local
 function storeSearch(search) {
 	localStorage.setItem("gameKey", search)
 	renderLocal();
 }
 
-
+// Determines if item in local storage has a value
 function renderLocal() {
-	lastSearchBtn.innerText = "";
-	  var lastSearch = localStorage.getItem(localStorage.key(0));
-	  console.log(lastSearch)
-	  lastSearchBtn.innerText = lastSearch;
-	  lastSearchBtn.addEventListener('click', handleSearchFormSubmit);
+	var lastSearch = localStorage.getItem(localStorage.key(0));
+	if (lastSearch == null) {
+		return
+	} else {
+		lastSearchBtn.innerText = "";
+		lastSearchBtn.innerText = lastSearch;
+		lastSearchBtn.addEventListener('click', handleLastSearchSubmit);
+	}
+}
 
-  }
-  
-  renderLocal();
+// Targets Last Search Button and runs function
+function handleLastSearchSubmit(e) {
+	apiSearch(e.target.textContent)
+}
 
-
+// Filters user input to streamline results
 function handleSearchFormSubmit(e) {
 	e.preventDefault();
 	var rawSearch = gameSearch.value.trim();
 	var search = rawSearch.charAt(0).toUpperCase() + rawSearch.slice(1).toLowerCase();
 	apiSearch(search);
-	storeSearch(search) 
+	storeSearch(search)
 	gameSearch.value = '';
 }
 
-
-
-
+// Update Last Search Button on page load
+renderLocal();
 
 // lastSearchBtn.addEventListener('click', renderLocal);
 searchButton.addEventListener("click", handleSearchFormSubmit);
 searchForm.addEventListener('submit', handleSearchFormSubmit);
-
