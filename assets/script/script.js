@@ -1,5 +1,6 @@
 // Global Variables
-const apiKey = "7ca66c0b57msh5f0900adbde527ap12f1d6jsn65ee2844dd63"
+const steamApiKey = "7ca66c0b57msh5f0900adbde527ap12f1d6jsn65ee2844dd63"
+const steamNewsApiKey = "8a1b1e20c7msh9f86df25a5cedc4p1dacd9jsn68af83187e0f"
 const apiUrl = 'https://steam2.p.rapidapi.com/search/'
 const apiYoutubeUrl = `https://youtube138.p.rapidapi.com/search/?q=`
 const streamUrl = 'https://youtube138.p.rapidapi.com/video/streaming-data/?id='
@@ -8,7 +9,7 @@ const streamUrl = 'https://youtube138.p.rapidapi.com/video/streaming-data/?id='
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': apiKey,
+		'X-RapidAPI-Key': steamApiKey,
 		'X-RapidAPI-Host': 'steam2.p.rapidapi.com'
 	}
 };
@@ -16,7 +17,7 @@ const options = {
 const optionsNews = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '4abe4a0781msh9f300002fb38b8ap1ac971jsnd6b5e73499a4',
+		'X-RapidAPI-Key': steamNewsApiKey,
 		'X-RapidAPI-Host': 'steam2.p.rapidapi.com'
 	}
 };
