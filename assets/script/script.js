@@ -1,5 +1,5 @@
 // Global Variables
-const steamApiKey = "7ca66c0b57msh5f0900adbde527ap12f1d6jsn65ee2844dd63"
+const steamApiKey = "8a1b1e20c7msh9f86df25a5cedc4p1dacd9jsn68af83187e0f"
 const steamNewsApiKey = "8a1b1e20c7msh9f86df25a5cedc4p1dacd9jsn68af83187e0f"
 const apiUrl = 'https://steam2.p.rapidapi.com/search/'
 const apiYoutubeUrl = `https://youtube138.p.rapidapi.com/search/?q=`
